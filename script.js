@@ -34,6 +34,10 @@ let currentQuestion = 0;
 
 //WHEN I click the start button
 
+document.getElementById("start-button").addEventListener("click", function(){
+    // add function to start quiz here
+}
+
 
 // THEN a timer starts and I am presented with a question
 
@@ -61,8 +65,8 @@ let currentQuestion = 0;
 
 
 //THEN I can save my initials and score - Start of Highscore List to add to
-let highscoresInput = document.querySelector("highscore-text");
-let highscoreForm = document.querySelector("highscore-list");
+let highscoreInput = document.querySelector("highscore-text");
+let highscoreForm = document.querySelector("highscore-form");
 let highscoreList = document.querySelector("highscore-list");
 let highscoreCountSpan = document.querySelector("highscore-count");
 
@@ -85,3 +89,60 @@ function renderHighscores() {
     }
 }
 
+//When the name is submitted to the list
+highscoreForm.addEventListener("submit", function(event) {
+    event.preventDefault();
+
+    let highscoreText = highscoreInput.value.trim();
+
+    if (highscoreText === "") {
+        return;
+    }
+
+    //Add new highscoreText to addName array, clear the input
+    addName.push(highscoreText);
+    highscoreInput.value = "";
+
+    //Re-render the highscore list
+    storeNames();
+    renderHighscores();
+
+});
+
+//local storage code starts here - get stored names from localStorage
+function init() {
+    //Parsing the string to the object
+    let storedNames = JSON.parse(localStorage.getItem("addName"));
+
+    // if names are retrieved from localStorage, update the addNames array
+    if (storedNames !== null) {
+        addName = storedNames;
+    }
+
+    //Render addName to DOM
+    renderAddname();
+}
+
+function storeNames() {
+    //Stringify and set "addName" key to localStorage to todos array
+    localStorage.setItem("addName", JSON.stringify(addName));
+}
+
+//When the form is submitted
+highscoreForm.addEventListener("submit", function(event) {
+    event.preventDefault();
+
+    let highscoreText = highscoreInput.value.trim();
+
+    if (highscoreText === "") {
+        return;
+}
+
+    //Add new highscoreText to addName array, clear the input
+    addName.push(highscoreText);
+    highscoreInput.value = "";
+
+    //Store updated addName in localStorage, re-render list
+    storeAddname();
+    renderAddname();
+}); 
