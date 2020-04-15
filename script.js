@@ -1,3 +1,36 @@
+let timer = document.querySelector("timer");
+let startButton = document.querySelector("btn btn-primary");
+let quizStart = document.querySelector("quiz-start");
+
+let quizQuestions = [ {
+    question: "Which language is not one of the three core languages of the web?",
+    choices: ["CSS", "HTML", "Java", "JavaScript"],
+    answer: "Java",
+},
+{
+    question:"JavaScript variables are written in which type of case?",
+    choices: ["lowercase", "camelCase", "UPPERCASE", "CapitalCase" ]
+    answer: "camelCase",
+},
+{
+    question: "Which language below can change the look and style of a webpage?",
+    choices: ["Python", "CSS", "JavaScript", "HTML"],
+    answer: "CSS"
+},
+{
+    question:"Fill in the blank: Traversing the _______",
+    choices: ["Ruby on Rails", "Python", "Rust", "DOM"],
+    answer: "DOM",
+},
+{
+    question: "Which function will display data in the browser console?",
+    choices: ["console.log", "document.write[]", "window.alert()", "interHTML"],
+    answer: "console.log",
+},
+]
+
+
+
 //WHEN I click the start button
 
 
