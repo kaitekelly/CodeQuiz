@@ -29,6 +29,7 @@ let quizQuestions = [ {
 },
 ]
 
+let currentQuestion = 0;
 
 
 //WHEN I click the start button
@@ -59,4 +60,28 @@ let quizQuestions = [ {
 //THEN the game is over
 
 
-//THEN I can save my initials and score
+//THEN I can save my initials and score - Start of Highscore List to add to
+let highscoresInput = document.querySelector("highscore-text");
+let highscoreForm = document.querySelector("highscore-list");
+let highscoreList = document.querySelector("highscore-list");
+let highscoreCountSpan = document.querySelector("highscore-count");
+
+let addName = [];
+
+renderHighscores();
+
+function renderHighscores() {
+    // Clear highscoreList element and update highscoreCountSpan
+    highscoreList.innerHTML = "";
+    highscoreCountSpan.textContent = addName.length;
+
+    // Render a new li for each name added
+    for (i = 0; i < addName.length; i++) {
+        let name = addName[i];
+
+        let li = document.createElement("li");
+        li.textContent = name;
+        highscoreList.appendChild(li);
+    }
+}
+
