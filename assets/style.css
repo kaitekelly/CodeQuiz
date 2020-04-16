@@ -1,0 +1,49 @@
+* {
+    font-family: 'Montserrat', sans-serif;
+}
+
+body {
+    background-color: rgb(245, 245, 245);
+}
+
+a {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 18px;
+}
+
+h1 {font-family: 'Montserrat600', sans-serif;
+    font-weight: lighter;
+    text-align: center;
+    font-size: 48px;
+    color: rgb(5, 106, 137);
+}
+
+p {font-family: 'Montserrat600', sans-serif;
+    text-align: center;
+
+}
+
+#start-button {
+    font-family: 'Montserrat600', sans-serif;
+    align-items: center;
+    color: rgb(10,34,57);
+    background-color: rgb(83, 162, 190);
+}
+
+li {
+    font-family: 'Montserrat600', sans-serif;
+    text-align: center;
+    
+}
+
+ul {
+    font-family: 'Montserrat600', sans-serif;
+    text-align: center;
+}
+
+button  {
+    font-family: 'Montserrat600', sans-serif;
+    background-color: rgb(27,153, 139);
+    color: rgb(10, 34, 57);
+    font-size: medium;
+}
