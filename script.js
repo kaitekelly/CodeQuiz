@@ -1,80 +1,107 @@
 let timer = document.querySelector(".timer");
 let startButton = document.querySelector("#start-button");
-let quizStart = document.querySelector(".quiz-start");
+let quizStart = document.querySelector("#quiz-start");
+let questionNumber = document.querySelector("p");
+let correctMessage = "#correct-message";
 
-let quizQuestions = [ {
-    question: "Which language is not one of the three core languages of the web?",
-    choices: ["CSS", "HTML", "Java", "JavaScript"],
-    answer: "Java",
-},
-{
-    question:"JavaScript variables are written in which type of case?",
-    choices: ["lowercase", "camelCase", "UPPERCASE", "CapitalCase" ],
-    answer: "camelCase",
-},
-{
-    question: "Which language below can change the look and style of a webpage?",
-    choices: ["Python", "CSS", "JavaScript", "HTML"],
-    answer: "CSS"
-},
-{
-    question:"Fill in the blank: Traversing the _______",
-    choices: ["Ruby on Rails", "Python", "Rust", "DOM"],
-    answer: "DOM",
-},
-{
-    question: "Which function will display data in the browser console?",
-    choices: ["console.log", "document.write[]", "window.alert()", "interHTML"],
-    answer: "console.log",
-},
+let quizQuestions = [{
+        question: "Which language is not one of the three core languages of the web?",
+        choices: ["CSS", "HTML", "Java", "JavaScript"],
+        answer: "Java",
+    },
+    {
+        question: "JavaScript variables are written in which type of case?",
+        choices: ["lowercase", "camelCase", "UPPERCASE", "CapitalCase"],
+        answer: "camelCase",
+    },
+    {
+        question: "Which language below can change the look and style of a webpage?",
+        choices: ["Python", "CSS", "JavaScript", "HTML"],
+        answer: "CSS",
+    },
+    {
+        question: "Fill in the blank: Traversing the _______",
+        choices: ["Ruby on Rails", "Python", "Rust", "DOM"],
+        answer: "DOM",
+    },
+    {
+        question: "Which function will display data in the browser console?",
+        choices: ["console.log", "document.write[]", "window.alert()", "interHTML"],
+        answer: "console.log",
+    },
 ]
+console.log(quizQuestions);
+
+//WHEN I click the start button
 
 let currentQuestion = 0;
-//WHEN I click the start button
-// to check your answer, place in i or 
-quizQuestions[0].answer
+let timerBegin = 75;
+let userChoice = 0;
 
 
-
-
-
-let timerEl = querySelector("timer");
-let countdownEl = querySelector("#countdown");
-let mainEl = querySelector("main");
-let timeLeft = 
-
-startButton.addEventListener("click", function(){
-    let timerBegin = 75;
-
-    let timeInterval = setInterval(function() {
-        countdownEl.textContent = timeLeft;
-        timeLeft--;  
-        if ( //countdownEl.textContent = timeLeft;
-        timeLeft-10;
-
-        if (timeLeft < 0) {
-            // timer stops and user is taken to the highscores page
-        }
-    })
-
-    render()
+// Event listener for start button - quizQuestions
+//check if start-button needs a pound sign in front of it
+document.getElementById("start-button").addEventListener("click", function() {
+    beginQuiz;
+    // timerEl;
 })
+console.log(startButton)
 
-function render() {
-    let questionData = quizQuestions[currentQuestion];
-    $("#question").text(questionData.question);
-    $("#choices").empty();
-
-    for (let i = 0; i < questionData.choices; i++) {
-        $("#options").append($("<li>").text(questionData.choices[i]));
+// QUiz start function starts here 
+function beginQuiz(){
+    // Loop over every question
+    for (let i = 0; i < quizQuestions.length; i++) {
+        let questionNumber = questionNumber(quizQuestions[i].question);
     }
-    currentQuestion +- 1;
-    if (currentQuestion === quizQuestions.length) {
-        currentQuestion = 0;
-    }
+console.log(beginQuiz)
+    // // start if statements to check if answers are correct 
+    // if (userChoice === quizQuestions[0].answer) {
+    //     correctMessage = "Correct!"
+    // } else {
+    //     correctMessage = "Wrong! You lose 10 seconds!"
+    // }
 }
 
-$("#submit").click(render)
+// to check your answer, place in i or 
+// quizQuestions[0].answer
+
+// let timerEl = querySelector("#timer");
+// let countdownEl = querySelector("#countdown");
+// let mainEl = querySelector("main");
+// let timeLeft = ("");
+
+// startButton.addEventListener("click", function(){
+//     let timerBegin = 75;
+
+//     let timeInterval = setInterval(function() {
+//         countdownEl.textContent = timeLeft;
+//         timeLeft--;  
+//         if ( //countdownEl.textContent = timeLeft;
+//         timeLeft-10);
+
+//         if (timeLeft < 0) {
+//             // timer stops and user is taken to the highscores page
+//         }
+//     })
+
+//     render()
+// })
+
+// function render() {
+//     let questionData = quizQuestions[currentQuestion];
+//     $("#question").text(questionData.question);
+//     $("#choices").empty();
+
+//     for (let i = 0; i < questionData.choices; i++) {
+//         $("#options").append($("<li>").text(questionData.choices[i]));
+//     }
+//     currentQuestion +- 1;
+//     if (currentQuestion === quizQuestions.length) {
+//         currentQuestion = 0;
+//     }
+// }
+
+// $("#submit").click(render)
 
 
 

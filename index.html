@@ -8,9 +8,9 @@
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
-    <style>
+    <!-- <style>
         @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,500;0,900;1,600&display=swap');
-        </style>
+    </style> -->
     <link rel="stylesheet" href="./assets/style.css" />
     <title>Code Quiz</title>
 </head>
@@ -30,18 +30,19 @@
             <h3 id="main"></h2>
         </div>
         <!-- quiz start button-->
-        <div class="quiz-start">
+        <div id="quiz-start">
             <button type="button" class="btn btn-primary" id="start-button">Start Quiz!</button>
         </div>
         <!--Quiz Questions-->
         <div class="quiz-questions">
-            <p class="question">Question placeholder </p>
+            <p id="question-number">Question placeholder </p>
             <ul>
                 <li><button id="choice1">Choice 1</button></li>
                 <li><button id="choice2">Choice 2</button></li>
                 <li><button id="choice3">Choice 3</button></li>
                 <li><button id="choice4">Choice 4</button></li>
             </ul>
+            <p id="correct-message">Correct!</p>
         </div>
     </div>
     <script src= "./script.js"></script>
