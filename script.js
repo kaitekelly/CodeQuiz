@@ -1,8 +1,10 @@
-let timer = document.querySelector(".timer");
+let timer = document.querySelector("#timer");
 let startButton = document.querySelector("#start-button");
 let quizStart = document.querySelector("#quiz-start");
 let questionNumber = document.querySelector("p");
-let correctMessage = "#correct-message";
+let rules = document.querySelector("#rules");
+let correctMessage = document.querySelector("#correct-message");
+let questionChoices = document.querySelector(".choices")
 
 let quizQuestions = [{
         question: "Which language is not one of the three core languages of the web?",
@@ -33,17 +35,27 @@ let quizQuestions = [{
 console.log(quizQuestions);
 
 //WHEN I click the start button
-
 let currentQuestion = 0;
 let timerBegin = 75;
 let userChoice = 0;
-
+let timerEl = querySelector("#timer");
+let countdownEl = querySelector("#countdown");
+let mainEl = querySelector("main");
+let timeLeft = ("");
+//Highscore variables start here
+let highscoreInput = document.querySelector("highscore-text");
+let highscoreForm = document.querySelector("highscore-form");
+let highscoreList = document.querySelector("highscore-list");
+let highscoreCountSpan = document.querySelector("highscore-count");
+let addName = [];
 
 // Event listener for start button - quizQuestions
 //check if start-button needs a pound sign in front of it
 document.getElementById("start-button").addEventListener("click", function() {
     beginQuiz;
     // timerEl;
+    startButton.style.visibility = "hidden";
+    rules.style.visibility = "hidden";
 })
 console.log(startButton)
 
@@ -54,54 +66,48 @@ function beginQuiz(){
         let questionNumber = questionNumber(quizQuestions[i].question);
     }
 console.log(beginQuiz)
-    // // start if statements to check if answers are correct 
-    // if (userChoice === quizQuestions[0].answer) {
-    //     correctMessage = "Correct!"
-    // } else {
-    //     correctMessage = "Wrong! You lose 10 seconds!"
-    // }
+    // start if statements to check if answers are correct 
+    if (userChoice === quizQuestions[0].answer) {
+        correctMessage = prompt("Correct!");
+    } else {
+        userChoice !== quizQuestion[0].answer() 
+        textDisplay = "Wrong! You lose 10 seconds!"
+    
+    }
 }
 
-// to check your answer, place in i or 
-// quizQuestions[0].answer
+startButton.addEventListener("click", function(){
+    let timerBegin = 75;
 
-// let timerEl = querySelector("#timer");
-// let countdownEl = querySelector("#countdown");
-// let mainEl = querySelector("main");
-// let timeLeft = ("");
+    let timeInterval = setInterval(function() {
+        countdownEl.textContent = timeLeft;
+        timeLeft--;  
+        if (countdownEl.textContent = timeLeft
+        // timeLeft--10);
 
-// startButton.addEventListener("click", function(){
-//     let timerBegin = 75;
+        if (timeLeft < 0) {
+            // timer stops and user is taken to the highscores page
+        }
+    })
 
-//     let timeInterval = setInterval(function() {
-//         countdownEl.textContent = timeLeft;
-//         timeLeft--;  
-//         if ( //countdownEl.textContent = timeLeft;
-//         timeLeft-10);
+    render()
+})
 
-//         if (timeLeft < 0) {
-//             // timer stops and user is taken to the highscores page
-//         }
-//     })
+function render() {
+    let questionData = quizQuestions[currentQuestion];
+    $("#question").text(questionData.question);
+    $("#choices").empty();
 
-//     render()
-// })
+    for (let i = 0; i < questionData.choices; i++) {
+        $("#options").append($("<li>").text(questionData.choices[i]));
+    }
+    currentQuestion +- 1;
+    if (currentQuestion === quizQuestions.length) {
+        currentQuestion = 0;
+    }
+}
 
-// function render() {
-//     let questionData = quizQuestions[currentQuestion];
-//     $("#question").text(questionData.question);
-//     $("#choices").empty();
-
-//     for (let i = 0; i < questionData.choices; i++) {
-//         $("#options").append($("<li>").text(questionData.choices[i]));
-//     }
-//     currentQuestion +- 1;
-//     if (currentQuestion === quizQuestions.length) {
-//         currentQuestion = 0;
-//     }
-// }
-
-// $("#submit").click(render)
+$("#submit").click(render)
 
 
 
@@ -137,49 +143,44 @@ console.log(beginQuiz)
 
 
 //THEN I can save my initials and score - Start of Highscore List to add to
-// let highscoreInput = document.querySelector("highscore-text");
-// let highscoreForm = document.querySelector("highscore-form");
-// let highscoreList = document.querySelector("highscore-list");
-// let highscoreCountSpan = document.querySelector("highscore-count");
 
-// let addName = [];
 
-// renderHighscores();
+renderHighscores();
 
-// function renderHighscores() {
-//     // Clear highscoreList element and update highscoreCountSpan
-//     highscoreList.innerHTML = "";
-//     highscoreCountSpan.textContent = addName.length;
+function renderHighscores() {
+    // Clear highscoreList element and update highscoreCountSpan
+    highscoreList.innerHTML = "";
+    highscoreCountSpan.textContent = addName.length;
 
-//     // Render a new li for each name added
-//     for (i = 0; i < addName.length; i++) {
-//         let name = addName[i];
+    // Render a new li for each name added
+    for (i = 0; i < addName.length; i++) {
+        let name = addName[i];
 
-//         let li = document.createElement("li");
-//         li.textContent = name;
-//         highscoreList.appendChild(li);
-//     }
-// }
+        let li = document.createElement("li");
+        li.textContent = name;
+        highscoreList.appendChild(li);
+    }
+}
 
 // //When the name is submitted to the list
-// highscoreForm.addEventListener("submit", function(event) {
-//     event.preventDefault();
+highscoreForm.addEventListener("submit", function(event) {
+    event.preventDefault();
 
-//     let highscoreText = highscoreInput.value.trim();
+    let highscoreText = highscoreInput.value.trim();
 
-//     if (highscoreText === "") {
-//         return;
-//     }
+    if (highscoreText === "") {
+        return;
+    }
 
-//     //Add new highscoreText to addName array, clear the input
-//     addName.push(highscoreText);
-//     highscoreInput.value = "";
+    //Add new highscoreText to addName array, clear the input
+    addName.push(highscoreText);
+    highscoreInput.value = "";
 
-//     //Re-render the highscore list
-//     storeNames();
-//     renderHighscores();
+    //Re-render the highscore list
+    storeNames();
+    renderHighscores();
 
-// });
+});
 
 // //local storage code starts here - get stored names from localStorage
 // function init() {

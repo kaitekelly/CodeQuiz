@@ -1,6 +1,9 @@
 /* * {
     font-family: 'Montserrat', sans-serif;
 } */
+.container {
+    text-align: center;
+}
 
 body {
     background-color: rgb(245, 245, 245);
@@ -8,13 +11,14 @@ body {
 
 a {
     font-family: 'Montserrat', sans-serif;
-    font-size: 18px;
+    font-size: 20px;
 }
 
 h1 {font-family: 'Montserrat600', sans-serif;
     font-weight: lighter;
     text-align: center;
-    font-size: 48px;
+    margin: 20px;
+    font-size: 32pt;
     color: rgb(5, 106, 137);
 }
 
@@ -25,15 +29,9 @@ p {font-family: 'Montserrat600', sans-serif;
 
 #start-button {
     font-family: 'Montserrat600', sans-serif;
-    align-items: center;
+    text-align: center;
     color: rgb(10,34,57);
     background-color: rgb(83, 162, 190);
-}
-
-li {
-    font-family: 'Montserrat600', sans-serif;
-    text-align: center;
-    
 }
 
 ul {
@@ -45,5 +43,31 @@ button  {
     font-family: 'Montserrat600', sans-serif;
     background-color: rgb(27,153, 139);
     color: rgb(10, 34, 57);
-    font-size: medium;
+    font-size: 18pt;
+    padding: 10px;
+    margin: 20px;
+
+}
+
+.navbar {
+    padding: 20px;
+}
+
+#countdown {
+    padding: 20px;
+    background-color: rgb(5, 106, 137);
+    color: rgb(245, 245, 245);
+    width: 70px;
+    /* margin-top: 10pxs; */
+    float: right;
+    text-align: center
+
+}
+
+.jumbotron {
+    margin-top: 20px;
+}
+
+.lead {
+    font-size: 12pt;
 }
