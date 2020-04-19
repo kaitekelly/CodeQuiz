@@ -24,10 +24,10 @@
 <body>
     <header>
         <div class="row">
-                <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
                 <a class="navbar-brand" id="navbar" href="highscores.html">View HighScores</a>
-            <div id="countdown" class="timer">00:00</div>
-            </nav>  
+                <div id="countdown" class="timer">00:00</div>
+            </nav>
         </div>
     </header>
 
@@ -36,7 +36,8 @@
         <div class="jumbotron jumbotron-fluid">
             <div class="container">
                 <h1 class="display-4">Code Challenge</h1>
-                <p class="lead" id="rules">You have 75 seconds to answer the following questions by clicking on the correct answer
+                <p class="lead" id="rules">You have 75 seconds to answer the following questions by clicking on the
+                    correct answer
                     button. Choose the wrong answer and you will be <br>deducted 10 seconds on the timer. The
                     number of seconds you have left is your score. </p>
             </div>
@@ -48,21 +49,10 @@
         <!--Quiz Questions-->
         <div class="quiz-questions">
             <div class="row">
-                <p id="question-number">'quizQuestions.questions'</p>
+                <div id="question-number"></div>
             </div>
-            <div class="row">
-                <button class="choices" id="btn1">Choice 1</button>
-            </div>
-            <div class="row">
-                <button class="choices" id="btn2">Choice 2</button>
-            </div>
-            <div class="row">
-                <button class="choices" id="btn3">Choice 3</button>
-            </div>
-            <div class="row">
-                <button class="choices" id="btn4">Choice 4</button>
-            </div>
-            <p id="correct-message">Correct!</p>
+            <div class="row" id="answerSection"></div>
+            <p id="correct-message"></p>
         </div>
     </div>
     <script src="./script.js"></script>
