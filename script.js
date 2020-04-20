@@ -7,12 +7,14 @@ let correctMessage = document.querySelector("#correct-message");
 let questionChoices = document.querySelector(".choices");
 let timeLeft = 0;
 let currentQuestion;
+let currentChoices;
 var questionDiv = document.getElementById("question-number");
 
-let userChoice = 0;
+let userChoice;
 let timerEl = document.querySelector("#timer");
 let countdownEl = document.querySelector("#countdown");
 let mainEl = document.querySelector("main");
+
 
 
 
@@ -45,7 +47,7 @@ var quizQuestions = [{
 
 // console.log(quizQuestions);
 // console.log(quizQuestions[0]);
-
+// console.log(quizQuestions[i].answer);
 
 
 // for (i = 0; i < quizQuestions[0].choices.length; i++) {
@@ -53,9 +55,6 @@ var quizQuestions = [{
 // }
 
 //WHEN I click the start button
-
-
-
 
 // Event listener for start button - quizQuestions
 document.getElementById("start-button").addEventListener("click", function () {
@@ -91,15 +90,26 @@ function print() {
     document.getElementById("answerSection").textContent = "";
     questionDiv.textContent = currentQuestion.question;
     for (i = 0; i < currentQuestion.choices.length; i++) {
-        let button = document.createElement("button");
+        const button = document.createElement("button");
         button.textContent = currentQuestion.choices[i];
         document.getElementById("answerSection").appendChild(button);
+        button.addEventListener("click", verifyAnswer);
     }
+    
 }
 
 
 
+// console.log(quizQuestions[0].choices[i])
+
 function verifyAnswer() {
+    // if (event.target === quizQuestions[i].answer) {
+    //     correctMessage.textContent = "Correct!";
+    // }
+    // else {
+        correctMessage.textContent = "Wrong answer, you lose 10 seconds from your score.";
+        timeLeft = timeLeft - 10;
+    // }
     //is the answer they checked on = to answer in global variable
     //use if else statementsk to check answers
     // deduct -10 secons function lives here too
@@ -108,5 +118,5 @@ function verifyAnswer() {
 
 function endGame() {
     // when timer reaches zero trigger alert and create an input element to submit initials to local storage
-    }
-        
+  
+}
