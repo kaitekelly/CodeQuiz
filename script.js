@@ -71,7 +71,7 @@ document.getElementById("start-button").addEventListener("click", function () {
 
 function startTimer() {
 
-    timeLeft = 5;
+    timeLeft = 75;
         timerInterval = setInterval(function () {
         countdownEl.textContent = timeLeft;
         timeLeft--;

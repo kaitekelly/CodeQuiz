@@ -72,6 +72,10 @@ button  {
     font-size: 12pt;
 }
 
+#question-number {
+    font-family: 'Montserrat', sans-serif;
+}
+
 /* .quiz-questions {
     display: none;
 } */
