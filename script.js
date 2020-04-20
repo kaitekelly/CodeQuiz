@@ -14,6 +14,8 @@ let userChoice;
 let timerEl = document.querySelector("#timer");
 let countdownEl = document.querySelector("#countdown");
 let mainEl = document.querySelector("main");
+let timerInterval;
+let score;
 
 
 
@@ -69,21 +71,23 @@ document.getElementById("start-button").addEventListener("click", function () {
 
 function startTimer() {
 
-    timeLeft = 75;
-    let timerInterval = setInterval(function () {
+    timeLeft = 5;
+        timerInterval = setInterval(function () {
         countdownEl.textContent = timeLeft;
         timeLeft--;
         (countdownEl.textContent = timeLeft);
         // console.log(timeLeft);
         if (timeLeft === 0) {
-            clearInterval(timerInterval);
-            alert("Time is up!")
+            endGame();
         }
         // timeLeft--10);
     }, 1000);
 }
 
 function print() {
+    if (quizQuestions.length === 0) {
+        endGame();
+    }
     currentQuestion = quizQuestions.shift()
     console.log(currentQuestion);
     currentQuestion.textContent = "";
@@ -103,13 +107,20 @@ function print() {
 // console.log(quizQuestions[0].choices[i])
 
 function verifyAnswer() {
-    // if (event.target === quizQuestions[i].answer) {
-    //     correctMessage.textContent = "Correct!";
-    // }
-    // else {
+    
+    // let correctAnswer = quizQuestions.filter(answer){
+    //     return answer == "answer";
+    
+    if (this.textContent === currentQuestion.answer) {
+        correctMessage.textContent = "Correct!";
+        print();
+    }
+    else {
         correctMessage.textContent = "Wrong answer, you lose 10 seconds from your score.";
         timeLeft = timeLeft - 10;
-    // }
+        print();
+    }
+    
     //is the answer they checked on = to answer in global variable
     //use if else statementsk to check answers
     // deduct -10 secons function lives here too
@@ -117,6 +128,13 @@ function verifyAnswer() {
 }
 
 function endGame() {
+    console.log(timeLeft);
     // when timer reaches zero trigger alert and create an input element to submit initials to local storage
-  
+        clearInterval(timerInterval);
+        alert("Time is up!")
 }
+
+//save input form to endgame and have have it push to local storage 
+//ok to leave alert
+//to display input in end game, 
+// submit input to trigger save then be able to save to local storage
