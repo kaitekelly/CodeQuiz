@@ -131,8 +131,17 @@ function endGame() {
     console.log(timeLeft);
     // when timer reaches zero trigger alert and create an input element to submit initials to local storage
         clearInterval(timerInterval);
-        alert("Time is up!")
+        alert("Time is up! Your score is " + timeLeft);
+
+        var element = document.getElementById("endgame-content");
+  element.classList.add("invisible");
+
+  var form = document.getElementById("form-row");
+  form.classList.remove("invisible");
+
 }
+
+
 
 //save input form to endgame and have have it push to local storage 
 //ok to leave alert
